@@ -12,15 +12,16 @@
    <div class="container-fluid">
     <div id="login-area" >
         <h1 class="text-center pb-5">Welcome to Bank Asia</h1>
-        <div class="submit-area">
+        <div class="submit-area col-md-10 mx-auto">
             <h2 class="mb-4 ">Login</h2>
             <input type="email" class="form-control mb-4" placeholder="Email">
             <input type="password" class="form-control mb-4" placeholder="Password">
-            <button class="btn btn-success">Enter</button>
+            <button id="login" class="btn btn-success">Enter</button>
         </div>
 
     </div>
-    <div class="row pt-4 pb-5">
+    <div id="transaction-area">
+        <div class="row pt-4 pb-5">
             <div class="col-md-4  ">
                 <div class="status Deposit">
                     <h5>Deposit</h5>
@@ -40,26 +41,33 @@
                 </div>
             </div>
     </div>
-    <div class="transaction-area">
-        <div class="row">
-            <div class="col-md-6">
-                <div class="add-deposit submit-area">
-                    <h3 class="mb-3">Deposit</h3>
-                    <input type="text" class="form-control mb-3" placeholder="$ Amount you want to deposit">
-                    <button class="btn btn-success fw-bold">Deposit</button>
-                </div>
+    <div class="row">
+        <div class="col-md-6">
+            <div class="add-deposit submit-area">
+                <h3 class="mb-3">Deposit</h3>
+                <input type="text" class="form-control mb-3" placeholder="$ Amount you want to deposit">
+                <button class="btn btn-success fw-bold">Deposit</button>
             </div>
-            <div class="col-md-6">
-                <div class="do-withdraw submit-area">
-                    <h3 class="mb-3">Withdraw</h3>
-                    <input type="text" class="form-control mb-3" placeholder="$ Amount you want to Withdraw">
-                    <button class="btn btn-success fw-bold ">Withdraw</button>
-                </div>
+        </div>
+        <div class="col-md-6">
+            <div class="do-withdraw submit-area">
+                <h3 class="mb-3">Withdraw</h3>
+                <input type="text" class="form-control mb-3" placeholder="$ Amount you want to Withdraw">
+                <button class="btn btn-success fw-bold ">Withdraw</button>
             </div>
         </div>
     </div>
+    </div>
 
    </div>
-    
+    <script>
+        const loginButton= document.getElementById("login");
+        loginButton.addEventListener("click",function(){
+            const loginArea= document.getElementById("login-area");
+            loginArea.style.display="none";
+            const transactionArea= document.getElementById("transaction-area");
+            transactionArea.style.display="block";
+        })
+    </script>
 </body>
 </html>

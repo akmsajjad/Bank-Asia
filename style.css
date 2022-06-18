@@ -19,3 +19,6 @@ body{
 .Balance{
     background-color: orange;
 }
+#transaction-area{
+    display: none;
+}
