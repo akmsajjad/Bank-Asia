@@ -21,11 +21,11 @@
 
     </div>
     <div id="transaction-area">
-        <div class="row pt-4 pb-5">
+        <div class="row  pb-5">
             <div class="col-md-4  ">
-                <div class="status Deposit">
+                <div class="status Deposit ">
                     <h5>Deposit</h5>
-                    <h2>$00</h2>
+                    <h2>$<span id="currentDeposit">00</span> </h2>
                 </div>
             </div>
             <div class="col-md-4 ">
@@ -37,7 +37,7 @@
             <div class="col-md-4 ">
                 <div class="status Balance">
                     <h5>Balance</h5>
-                    <h2>$1240</h2>
+                    <h2>$<span id="currentBalance">1240</span> </h2>
                 </div>
             </div>
     </div>
@@ -45,8 +45,8 @@
         <div class="col-md-6">
             <div class="add-deposit submit-area">
                 <h3 class="mb-3">Deposit</h3>
-                <input type="text" class="form-control mb-3" placeholder="$ Amount you want to deposit">
-                <button class="btn btn-success fw-bold">Deposit</button>
+                <input id="depositAmount" type="text" class="form-control mb-3" placeholder="$ Amount you want to deposit">
+                <button id="addDeposit" class="btn btn-success fw-bold">Deposit</button>
             </div>
         </div>
         <div class="col-md-6">
@@ -61,6 +61,7 @@
 
    </div>
     <script>
+        //loin Button event handler
         const loginButton= document.getElementById("login");
         loginButton.addEventListener("click",function(){
             const loginArea= document.getElementById("login-area");
@@ -68,6 +69,29 @@
             const transactionArea= document.getElementById("transaction-area");
             transactionArea.style.display="block";
         })
+
+        //deposit button event handler
+        const addDeposit= document.getElementById("addDeposit");
+        addDeposit.addEventListener("click",function(){
+            const depositAmount= document.getElementById("depositAmount").value;
+            const depositNumber= parseFloat(depositAmount);
+            const currentDeposit= document.getElementById("currentDeposit").innerText;
+            const currentDepositNumber =parseFloat(currentDeposit);
+            const totalDeposit= currentDepositNumber+depositNumber;
+
+            document.getElementById("currentDeposit").innerText= totalDeposit;
+            document.getElementById("depositAmount").value= ("");
+
+            const currentBalance= document.getElementById("currentBalance").innerText;
+            const currentBalanceNumber= parseFloat(currentBalance);
+            const totalBalance= currentBalanceNumber+ totalDeposit;
+
+            document.getElementById("currentBalance").innerText= totalBalance;
+        })
+
+        //withdraw button event handler
+        
+        
     </script>
 </body>
 </html>
